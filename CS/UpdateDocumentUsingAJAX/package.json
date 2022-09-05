@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "devextreme": "20.1.8",
+    "devexpress-aspnetcore-spreadsheet": "20.1.8"
+  }
+}

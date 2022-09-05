@@ -1,0 +1,32 @@
+﻿@model UpdateDocumentUsingAJAX.Models.SpreadsheetDocumentContent
+@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/node_modules/devextreme/dist/js/dx.all.js"></script>
+<link href="~/node_modules/devextreme/dist/css/dx.common.css" rel="stylesheet" />
+<link href="~/node_modules/devextreme/dist/css/dx.light.css" rel="stylesheet" />
+
+<script src="~/node_modules/devexpress-aspnetcore-spreadsheet/dist/dx-aspnetcore-spreadsheet.js"></script>
+<link href="~/node_modules/devexpress-aspnetcore-spreadsheet/dist/dx-aspnetcore-spreadsheet.css" rel="stylesheet" />
+
+<script>
+    function OnClick() {
+        var spreadsheetState = spreadsheet.getSpreadsheetState();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("NewDocument")',
+            data: { spreadsheetState: spreadsheetState},
+            success: function (result) {
+                $("#container").html(result);
+            }
+        });
+    }
+</script>
+<input name="SpreadsheetWorkSessionId" type="hidden" value="" />
+<input type="button" onclick="OnClick()" value="New document" />
+<div class="text-center">
+    <div id="container">
+        @Html.Partial("SpreadsheetPartialView", @Model)
+    </div>
+</div>
