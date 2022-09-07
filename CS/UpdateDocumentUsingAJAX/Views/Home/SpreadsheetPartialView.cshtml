@@ -4,6 +4,5 @@
     .Height("500px")
     .Width("100%")
     .DocumentRequestHandlerUrl(Url.Action("DxDocRequest"))
-    .ReadOnly(false)
     .Open(@Model.DocumentId, @Model.DocumentFormat, @Model.ContentAccessorByBytes)
 )
