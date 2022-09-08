@@ -14,11 +14,11 @@ Follow the steps below to update the Spreadsheet's document content after a user
 
 ### 1. Send a POST request to the server
 
-Place the [Spreadsheet](https://docs.devexpress.com/AspNetCore/400375/spreadsheet) control in a partial view and reference the view in a markup page. Add a [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button) to this page and handle its [click](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) event. In the event handler, call the [getSpreadsheetState](https://docs.devexpress.com/AspNetCore/js-DevExpress.AspNetCore.Spreadsheet.Spreadsheet?p=netframework#js_devexpress_aspnetcore_spreadsheet_spreadsheet_getspreadsheetstate) method to get the Spreadsheet's client state, then send the state with the POST request to the server.
+Place the [Spreadsheet](https://docs.devexpress.com/AspNetCore/400375/spreadsheet) control in a partial view and reference the view in a markup page. Add a [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button) to this page. In the button's [click](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) event handler, get the Spreadsheet's [client state](https://docs.devexpress.com/AspNetCore/js-DevExpress.AspNetCore.Spreadsheet.Spreadsheet?p=netframework#js_devexpress_aspnetcore_spreadsheet_spreadsheet_getspreadsheetstate) and send it with the POST request to the server.
 
 ### 2. Process the request on the server
 
-On the server, get the server-side [Spreadsheet](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet?p=netframework) object from the control's client state. Call the [New](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet.New?p=netframework) method to create a document. Use the following properties to access and edit the new document's structural elements:
+On the server, get the server-side [Spreadsheet](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet?p=netframework) object from the  client state. Call the [New](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet.New?p=netframework) method to create an enmpty document. Use the following properties to access and edit the new document's structural elements:
 
 * [Document](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet.Document)  
 Returns an open [workbook](https://docs.devexpress.com/OfficeFileAPI/14921/spreadsheet-document-api/spreadsheet-document/workbook).
@@ -40,9 +40,9 @@ Returns the [range of cells](https://docs.devexpress.com/OfficeFileAPI/DevExpres
 
 ### 3. Send a response back to the client
 
-A new document has an empty identifier. The control cannot automatically save such a document and stores its content until you open or create another document.
+A new document has an empty identifier. The control cannot save such a document and loses its content when you open or create another document. Generate a unique string identifier for this document to not lose changes.
 
-Call the [SaveCopy](https://docs.devexpress.com/AspNet/DevExpress.Web.Office.SpreadsheetDocumentInfo.SaveCopy?p=netframework) method to export the document content to a byte array. Generate a unique string identifier and save it with the byte array to a document model. Pass this model to the [PartialView](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.controller.partialview?view=aspnet-mvc-5.2) method to create an object that renders the Spreadsheet. Send this object as a response back to the client.
+Call the [SaveCopy](https://docs.devexpress.com/AspNet/DevExpress.Web.Office.SpreadsheetDocumentInfo.SaveCopy?p=netframework) method to export the document content to a byte array. Write the generated identifier and the byte array to a document model. Pass this model to the [PartialView](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.controller.partialview?view=aspnet-mvc-5.2) method to create an object that renders the Spreadsheet. Send this object back to the client as a response.
 
 ## Files to Look At
 
