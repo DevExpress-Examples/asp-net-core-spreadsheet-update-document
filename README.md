@@ -18,7 +18,7 @@ Place the [Spreadsheet](https://docs.devexpress.com/AspNetCore/400375/spreadshee
 
 ### 2. Process the request on the server
 
-On the server, get the server-side [Spreadsheet](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet?p=netframework) object from the  client state. Call the [New](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet.New?p=netframework) method to create an enmpty document. Use the following properties to access and edit the new document's structural elements:
+On the server, get the server-side [Spreadsheet](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet?p=netframework) object from the client state. Call the object's [New](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet.New?p=netframework) method to create an empty document. Use the following properties to access and edit the new document's structural elements:
 
 * [Document](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxSpreadsheet.ASPxSpreadsheet.Document)  
 Returns an open [workbook](https://docs.devexpress.com/OfficeFileAPI/14921/spreadsheet-document-api/spreadsheet-document/workbook).
