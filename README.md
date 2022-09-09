@@ -36,7 +36,7 @@ Returns the collection of [columns](https://docs.devexpress.com/OfficeFileAPI/De
 Returns the collection of [cells](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.Cell) in a worksheet.
 
 * [Range](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.Worksheet.Range)  
-Returns the [range of cells](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.CellRange) in a worksheet.
+Returns the specified [cell range](https://docs.devexpress.com/OfficeFileAPI/DevExpress.Spreadsheet.CellRange) in a worksheet.
 
 ### 3. Send a response back to the client
 
