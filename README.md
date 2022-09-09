@@ -42,7 +42,7 @@ Returns the specified [cell range](https://docs.devexpress.com/OfficeFileAPI/Dev
 
 A new document has an empty identifier. The control cannot save such a document and loses its content when you open or create another document. Generate a unique string identifier for this document to be able to save pending changes. Call the [SaveCopy](https://docs.devexpress.com/AspNet/DevExpress.Web.Office.SpreadsheetDocumentInfo.SaveCopy?p=netframework) method to export the document content to a byte array.
 
-Create a class that models a spreadsheet document. This class should be able to store a document identifier and content. The example below creates the **SpreadsheetDocumentContent** class that stores document content as a byte array:
+Create a class that models a spreadsheet document. This class should be able to store a document's identifier and content. The example below creates the **SpreadsheetDocumentContent** class that stores document content as a byte array:
  
 ```csharp
 namespace UpdateDocumentUsingAJAX.Models {
