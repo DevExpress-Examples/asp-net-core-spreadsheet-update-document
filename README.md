@@ -40,9 +40,23 @@ Returns the [range of cells](https://docs.devexpress.com/OfficeFileAPI/DevExpres
 
 ### 3. Send a response back to the client
 
-A new document has an empty identifier. The control cannot save such a document and loses its content when you open or create another document. Generate a unique string identifier for this document to be able to save pending changes.
+A new document has an empty identifier. The control cannot save such a document and loses its content when you open or create another document. Generate a unique string identifier for this document to be able to save pending changes. Call the [SaveCopy](https://docs.devexpress.com/AspNet/DevExpress.Web.Office.SpreadsheetDocumentInfo.SaveCopy?p=netframework) method to export the document content to a byte array.
 
-Call the [SaveCopy](https://docs.devexpress.com/AspNet/DevExpress.Web.Office.SpreadsheetDocumentInfo.SaveCopy?p=netframework) method to export the document content to a byte array. Write the generated identifier and the byte array to a document model. Pass this model to the [PartialView](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.controller.partialview?view=aspnet-mvc-5.2) method to create an object that renders the Spreadsheet. Send this object back to the client as a response.
+Create a class that models a spreadsheet document. This class should be able to store a document identifier and content. The example below creates the **SpreadsheetDocumentContent** class that stores document content as a byte array:
+ 
+```csharp
+namespace UpdateDocumentUsingAJAX.Models {
+    public class SpreadsheetDocumentContent {
+        public string DocumentId { get; set; }
+        public Func<byte[]> ContentAccessorByBytes { get; set; }
+        public SpreadsheetDocumentContent(string documentId, Func<byte[]> contentAccessorByBytes) {
+            DocumentId = documentId;
+            ContentAccessorByBytes = contentAccessorByBytes;
+        }
+}
+```
+
+Create an instance of this class and write the generated identifier and exported document content to the instance. Pass it to the [PartialView](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.controller.partialview?view=aspnet-mvc-5.2) method to create an object that renders the Spreadsheet. Send this object back to the client as a response.
 
 ## Files to Look At
 
