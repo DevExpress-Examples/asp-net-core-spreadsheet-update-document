@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.AspNetCore.Spreadsheet" Version="22.1.5-pre-22207" />
-    <PackageReference Include="DevExpress.Document.Processor" Version="22.1.5-pre-22207" />
+    <PackageReference Include="DevExpress.AspNetCore.Spreadsheet" Version="22.1.4" />
+    <PackageReference Include="DevExpress.Document.Processor" Version="22.1.4" />
   </ItemGroup>
 
 
