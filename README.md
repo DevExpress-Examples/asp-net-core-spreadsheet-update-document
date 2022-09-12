@@ -6,7 +6,7 @@
 
 You can use AJAX requests to modify the Spreadsheet control's content. In this example, the control sends a POST request after a click on an external button. In response to this request, the control creates a document and edits its cells.
 
-![ASP.NET Core Spreadsheet update the control's content](/images/update-spreadsheet-document.gif)
+![ASP.NET Core Spreadsheet - update the control's content](/images/update-spreadsheet-document.gif)
 
 ## Overview
 
