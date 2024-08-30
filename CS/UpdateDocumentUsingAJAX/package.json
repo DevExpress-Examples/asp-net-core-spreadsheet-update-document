@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {},
   "dependencies": {
-    "devextreme-dist": "24.1.*-*",
-    "devexpress-aspnetcore-spreadsheet": "24.1.*-*"
+    "devextreme-dist": "~24.2.1-alpha",
+    "devexpress-aspnetcore-spreadsheet": "~24.2.1-alpha"
   }
 }
